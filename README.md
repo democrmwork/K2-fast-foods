@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # K2 Fast Foods 🍔
 
 > **Bold flavours. Fast delivery.**
@@ -205,3 +206,7 @@ npm run build           # Outputs to frontend/build/
 - [x] Phase 4 — Admin Panel
 - [ ] Phase 5 — QA & Production Deploy
 
+=======
+# K2-fast-foods
+K2 Fast Food 
+>>>>>>> 2f20186827a8b21bf736b7ad6ac15323ad6df550
