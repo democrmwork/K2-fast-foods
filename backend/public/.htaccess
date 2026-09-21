@@ -1,0 +1,31 @@
+# K2 Fast Foods — Apache config for XAMPP
+# Fixed version — 3 bugs corrected (see comments below)
+
+Options -Indexes
+RewriteEngine On
+
+# ── BUG 1 FIX: OPTIONS rule MUST come before all other RewriteCond/Rules ───
+# Original had OPTIONS AFTER the filename checks — it never fired.
+# Solution: Match OPTIONS first, send to index.php immediately.
+RewriteCond %{REQUEST_METHOD} ^OPTIONS$
+RewriteRule ^ index.php [L,QSA]
+
+# ── BUG 2 FIX: Removed "Header always set" directives ─────────────────────
+# These require mod_headers which is OFF by default in XAMPP.
+# Without it, Apache silently ignores these lines — no CORS headers sent.
+# Solution: All CORS headers are now set in PHP (index.php) instead.
+
+# ── BUG 3 FIX: Replaced [R=200,L] with routing to index.php ──────────────
+# Original: RewriteRule ^(.*)$ $1 [R=200,L]
+# This sends a REDIRECT (302 then 200) not a direct 200 response.
+# The redirect response itself has no CORS headers → preflight fails.
+# Solution: Route OPTIONS to index.php which returns 200 with CORS headers.
+
+# ── Block sensitive files ──────────────────────────────────────────────────
+RewriteRule ^\.env$ - [F,L]
+RewriteRule ^composer\.(json|lock)$ - [F,L]
+
+# ── Route all requests to index.php ───────────────────────────────────────
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L,QSA]

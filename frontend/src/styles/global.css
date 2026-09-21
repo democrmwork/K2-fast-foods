@@ -1,0 +1,62 @@
+/* K2 Fast Foods — Global Styles
+   Brand: Red #D0021B | Gold #F5A700 | Black #111111
+   Mobile-first responsive design */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --k2-red: #D0021B; --k2-red-dark: #A30016; --k2-red-light: #FBE9EC;
+  --k2-gold: #F5A700; --k2-gold-dark: #C48300; --k2-gold-light: #FFF8E7;
+  --k2-black: #111111; --k2-dark: #1C1C1C; --k2-gray: #F4F4F4;
+  --k2-white: #FFFFFF; --k2-text: #222222; --k2-text-muted: #666666;
+  --k2-border: #E5E5E5; --k2-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  --k2-radius: 10px; --k2-radius-sm: 6px; --k2-radius-lg: 16px;
+  --transition: 0.2s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background: var(--k2-gray); color: var(--k2-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+.font-display { font-family: 'Bebas Neue', cursive; letter-spacing: 0.5px; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 768px) { .container { padding: 0 24px; } }
+@media (min-width: 1200px) { .container { padding: 0 32px; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: var(--k2-radius-sm); font-size: 15px; font-weight: 600; transition: all var(--transition); white-space: nowrap; }
+.btn-primary { background: var(--k2-red); color: #fff; }
+.btn-primary:hover { background: var(--k2-red-dark); transform: translateY(-1px); box-shadow: var(--k2-shadow); }
+.btn-secondary { background: var(--k2-gold); color: var(--k2-black); }
+.btn-secondary:hover { background: var(--k2-gold-dark); }
+.btn-outline { background: transparent; border: 2px solid var(--k2-red); color: var(--k2-red); }
+.btn-outline:hover { background: var(--k2-red); color: #fff; }
+.btn-dark { background: var(--k2-black); color: #fff; }
+.btn-sm { padding: 8px 16px; font-size: 13px; }
+.btn-lg { padding: 14px 32px; font-size: 17px; }
+.btn-full { width: 100%; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.form-group { margin-bottom: 18px; }
+.form-label { display: block; font-size: 14px; font-weight: 500; color: var(--k2-text); margin-bottom: 6px; }
+.form-input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--k2-border); border-radius: var(--k2-radius-sm); font-size: 15px; background: var(--k2-white); transition: border-color var(--transition); outline: none; }
+.form-input:focus { border-color: var(--k2-red); box-shadow: 0 0 0 3px rgba(208,2,27,0.10); }
+.form-input.error { border-color: var(--k2-red); }
+.form-error { font-size: 12px; color: var(--k2-red); margin-top: 4px; }
+
+.card { background: var(--k2-white); border-radius: var(--k2-radius); box-shadow: var(--k2-shadow); overflow: hidden; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.badge-red { background: var(--k2-red-light); color: var(--k2-red-dark); }
+.badge-gold { background: var(--k2-gold-light); color: var(--k2-gold-dark); }
+.badge-green { background: #e1f5ee; color: #0f6e56; }
+.badge-blue { background: #e6f1fb; color: #185fa5; }
+
+.spinner { width: 40px; height: 40px; border: 4px solid var(--k2-border); border-top-color: var(--k2-red); border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.alert { padding: 12px 16px; border-radius: var(--k2-radius-sm); font-size: 14px; margin-bottom: 16px; }
+.alert-error { background: var(--k2-red-light); color: var(--k2-red-dark); border-left: 4px solid var(--k2-red); }
+.alert-success { background: #e1f5ee; color: #0f6e56; border-left: 4px solid #0f6e56; }
